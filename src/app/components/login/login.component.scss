@@ -18,81 +18,83 @@
   width: 100%;
   max-width: 400px;
   color: #fff;
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #f0f0f0;
-  }
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0f0f0;
+}
 
-  label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #ccc;
-  }
+.login-box label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #ccc;
+}
 
-  input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    margin-top: 0.3rem;
-    border-radius: 8px;
-    border: none;
-    background: #222;
-    color: #eee;
-    font-size: 1rem;
+/* Inputs and buttons styled the same for matching size */
+.login-box input,
+.login-box button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  height: 42px;
+}
 
-    &:focus {
-      outline: 2px solid #0d6efd;
-      background: #2c2c2c;
-    }
-  }
+.login-box input {
+  margin-top: 0.3rem;
+  background: #222;
+  color: #eee;
+}
 
-  button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
-    background-color: #0d6efd;
-    color: white;
-    cursor: pointer;
-    transition: all 0.25s ease;
+.login-box input:focus {
+  outline: 2px solid #0d6efd;
+  background: #2c2c2c;
+}
 
-    &:hover:not(:disabled) {
-      background-color: #1a74ff;
-    }
+.login-box button {
+  margin-top: 1rem;
+  font-weight: 600;
+  background-color: #0d6efd;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
 
-    &.register-btn {
-      background-color: #28a745;
+.login-box button:hover:not(:disabled) {
+  background-color: #1a74ff;
+}
 
-      &:hover:not(:disabled) {
-        background-color: #4cd964;
-      }
-    }
+.login-box button.register-btn {
+  background-color: #28a745;
+}
 
-    &:disabled {
-      background-color: #555;
-      cursor: not-allowed;
-    }
-  }
+.login-box button.register-btn:hover:not(:disabled) {
+  background-color: #4cd964;
+}
 
-  .error-message {
-    color: #ff6b6b;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
+.login-box button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
 
-  p {
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #ddd;
-  }
+.login-box .error-message {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.login-box p {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ddd;
 }

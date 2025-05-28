@@ -1,33 +1,33 @@
-import { ApplicationConfig } from '@angular/core';
+// config.ts or wherever your ApplicationConfig is defined
+
 import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig } from '@angular/core';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth } from '@angular/fire/auth';
+import { provideFirestore } from '@angular/fire/firestore';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes'; // ✅ Corrected 'appRoutes' to 'routes'
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { routes } from './app.routes';
 
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideFirestore, getFirestore, Firestore } from '@angular/fire/firestore';
-import { provideAuth, getAuth } from '@angular/fire/auth'; // ✅ Added Auth import
-
-import { InjectionToken } from '@angular/core';
-
-// Provide Firestore2 alias
-export const Firestore2 = new InjectionToken<Firestore>('Firestore2');
+const firebaseConfig = {
+  apiKey: import.meta.env['NG_APP_FIREBASE_API_KEY'],
+  authDomain: import.meta.env['NG_APP_FIREBASE_AUTH_DOMAIN'],
+  projectId: import.meta.env['NG_APP_FIREBASE_PROJECT_ID'],
+  storageBucket: import.meta.env['NG_APP_FIREBASE_STORAGE_BUCKET'],
+  messagingSenderId: import.meta.env['NG_APP_FIREBASE_MESSAGING_SENDER_ID'],
+  appId: import.meta.env['NG_APP_FIREBASE_APP_ID']
+};
 
 export const config: ApplicationConfig = {
   providers: [
     provideHttpClient(),
     provideRouter(routes),
-    provideFirebaseApp(() => initializeApp({
-     apiKey: "AIzaSyCFd70JFJGTimymIIxWJkT9hIPmVZDhRMw",
-    authDomain: "quote-calculator-app.firebaseapp.com",
-    projectId: "quote-calculator-app",
-    storageBucket: "quote-calculator-app.firebasestorage.app",
-    messagingSenderId: "712601520926",
-    appId: "1:712601520926:web:1961c01afe2d469a27d70f"
-    })),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()), // ✅ Provide Auth
+    provideAuth(() => getAuth()),
     {
-      provide: Firestore2,
+      provide: getFirestore,
       useFactory: () => getFirestore()
     }
   ]

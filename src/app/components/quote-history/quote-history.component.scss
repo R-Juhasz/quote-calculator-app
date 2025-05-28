@@ -3,29 +3,33 @@
   margin: 2rem auto;
   padding: 1.5rem;
   background: #111;
-  border-radius: 8px;
-  color: #ddd;
+  border-radius: 12px;
+  color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  h2 {
-    margin-bottom: 1rem;
-    color: #0d6efd;
-  }
+.history-container h2 {
+  margin-bottom: 1rem;
+  color: #0d6efd;
+  font-weight: 700;
+}
 
-  ul {
-    list-style: none;
-    padding-left: 0;
+.history-container ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-    li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #222;
-      font-size: 1rem;
-    }
-  }
+.history-container ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #222;
+  font-size: 1rem;
+  color: #ccc;
+}
 
-  p {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-  }
+.history-container p {
+  text-align: center;
+  font-style: italic;
+  color: #666;
 }
