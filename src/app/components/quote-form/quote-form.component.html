@@ -1,0 +1,37 @@
+<div class="quote-form">
+  <h2>New Quote</h2>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <div *ngIf="success" class="success-message">{{ success }}</div>
+
+  <label>
+    Type:
+    <input [(ngModel)]="type" type="text" />
+  </label>
+
+  <label>
+    Width:
+    <input [(ngModel)]="width" type="number" />
+  </label>
+
+  <label>
+    Height:
+    <input [(ngModel)]="height" type="number" />
+  </label>
+
+  <label>
+    Material:
+    <input [(ngModel)]="material" type="text" />
+  </label>
+
+  <label>
+    Price:
+    <input [(ngModel)]="price" type="number" />
+  </label>
+
+  <button (click)="saveQuote()">Save Quote</button>
+
+  <div *ngIf="!auth.currentUser" class="login-prompt">
+    Please <a routerLink="/login">register or login</a> to save quotes to your history.
+  </div>
+</div>

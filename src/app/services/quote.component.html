@@ -1,0 +1,12 @@
+<h2>Your Quotes</h2>
+<button (click)="addSampleQuote()">Add Sample Quote</button>
+
+<ul>
+  <li *ngFor="let quote of quotes">
+    {{ quote.type }} - {{ quote.width }} x {{ quote.height }} cm,
+    Material: {{ quote.material }}, Price: £{{ quote.price }},
+    Date: {{ quote.date | date:'mediumDate' }}
+  </li>
+</ul>
+
+<div *ngIf="quotes.length === 0">No quotes saved yet.</div>

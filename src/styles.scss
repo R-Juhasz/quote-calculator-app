@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+// styles.scss
+
+// Variables
+$primary-color: #4fc3f7;
+$primary-color-dark: #3bb0e8;
+$background-color: #121629;
+$card-bg: #1e1e2f;
+$text-color: #eee;
+$muted-text: #aaa;
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$border-radius: 10px;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+// Mixins
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin transition($props...) {
+  transition: $props;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+// Navbar
+nav {
+  background: $card-bg;
+  padding: 1rem 2rem;
+  box-shadow: $shadow;
+  @include flex-center();
+
+  a {
+    color: $text-color;
+    margin: 0 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    @include transition(color 0.3s ease);
+
+    &.active,
+    &:hover {
+      color: $primary-color;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: $primary-color;
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 1rem;
+}

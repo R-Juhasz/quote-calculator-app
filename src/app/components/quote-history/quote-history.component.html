@@ -1,0 +1,16 @@
+<div class="history-container" *ngIf="quotes.length; else noQuotes">
+  <h2>Quote History</h2>
+  <ul>
+    <li *ngFor="let quote of quotes">
+      <strong>{{ quote.date | date: 'short' }}</strong> —
+      {{ quote.type | titlecase }} | 
+      {{ quote.width }}cm × {{ quote.height }}cm | 
+      Material: {{ quote.material | titlecase }} | 
+      Price: £{{ quote.price }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #noQuotes>
+  <p>No quotes yet. Make one!</p>
+</ng-template>
